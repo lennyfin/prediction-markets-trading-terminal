@@ -7,7 +7,7 @@ Market making dashboard with a live DOM ladder for prediction markets, built for
 Three Python tools for the **Susquehanna Predictions Cup**:
 
 - **DOM ladder:** order book of both contracts as a ladder, with the Polymarket fair value drawn as a line
-- **Live market monitor:** price charts (best bid, best ask, mid, trades) compared to the Polymarket fair value, with buy and sell signals and arbitrage
+- **Dashboard:** price charts (best bid, best ask, mid, trades) compared to the Polymarket fair value, with buy and sell signals and arbitrage
 - **MM scanner:** ranks which markets are worth quoting
 
 Put your **API key** into `KEY`, install the requirements and run the tool you want.
