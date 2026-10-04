@@ -18,6 +18,19 @@ Three Python tools for the **Susquehanna Predictions Cup**: a **DOM ladder**, a 
 - Your own **open orders** in a separate column
 - **Mouse wheel** moves the price range, `c` recenters
 
+The DOM shows one market at a time. To change it, **edit these variables directly at the top of `dom.py`**:
+
+```python
+NAME = "Alaska Senate"
+M_D, M_R = "377", "378"
+POLY_D = "will-mary-peltola-win-the-alaska-senate-race-in-2026"
+POLY_R = "will-dan-sullivan-win-the-alaska-senate-race-in-2026"
+```
+
+- **`NAME`:** title shown above the ladders
+- **`M_D`, `M_R`:** Susquehanna market ids of the Democratic and Republican contract
+- **`POLY_D`, `POLY_R`:** Polymarket slugs of the matching markets, used for the fair value line
+
 ### Dashboard (`dash_user_v2.3.py`)
 
 ![Dashboard](docs/dashboard.png)
