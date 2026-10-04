@@ -4,7 +4,7 @@ Market making dashboard with a live DOM ladder for prediction markets, built for
 
 ## TL;DR
 
-Three Python tools for the **Susquehanna Predictions Cup**: a **DOM ladder**, a **dashboard** that compares prices to the **Polymarket fair value**, and a **scanner** that ranks which markets are worth quoting. Put your **API key** into `KEY`, install the requirements and run the tool you want.
+Three Python tools for the **Susquehanna Predictions Cup**: a **DOM ladder** for the order book, a **live market monitor** with price charts (best bid, best ask, mid, trades) that compares prices to the **Polymarket fair value** and flags arbitrage, and an **MM scanner** that ranks which markets are worth quoting. Put your **API key** into `KEY`, install the requirements and run the tool you want.
 
 ## Tools
 
@@ -63,6 +63,21 @@ The **side panel** shows the indicators:
 - **Green:** quoting both sides makes sense. **Yellow:** only one side or a risky market
 - Press `1`, `2` or `3` to sort, **double click** a row to open it in the dashboard
 
+**Parameters:** the thresholds of the scanner are plain variables at the top of `mm_scanner.py`. **Change them there** to make the scanner stricter or looser:
+
+| Parameter | Default | What it does |
+|---|---|---|
+| `FLOW_S` | 600 | Time window in seconds for counting trades and volume |
+| `MIN_TRADES` | 2 | Minimum trades in that window, otherwise the market counts as having no flow |
+| `MIN_CAP` | 0.005 | Minimum profit per round trip after the penny jump |
+| `EDGE` | 0.005 | Buffer between your quotes and the Polymarket theo |
+| `PRICE_LO`, `PRICE_HI` | 0.10, 0.90 | Price range where quoting makes sense, closer to 0 or 1 a single fill can wipe out the profit |
+| `VOLA_MOVE` | 0.005 | Move of the Polymarket mid within 30 seconds that marks a market as volatile |
+| `MAX_PLAUS` | 0.25 | Maximum distance between theo and exchange mid, above it the Polymarket match is probably wrong |
+| `TICK` | 0.005 | Price tick of the exchange |
+
+A spread of at least 3 ticks is always required for a market to count as quotable.
+
 ## Setup
 
 ```bash
@@ -85,6 +100,4 @@ python dash_user_v2.3.py
 python mm_scanner.py
 ```
 
-**Keep all files in the same folder.** The scanner needs `arb_scanner.py` and `poly_gap_scanner.py`, and the dashboard opens `news_ticker.py` as an extra window (disable with `NEWS_WINDOW = False`).
-
-Built for a trading competition. Not financial advice.
+Built for a trading competition. Not financial advice
