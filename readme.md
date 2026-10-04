@@ -1,4 +1,4 @@
-# Prediction Market MM Dashboard
+# Prediction Market Trading Terminal
 
 Market making dashboard with a live DOM ladder for prediction markets, built for the Susquehanna Predictions Cup.
 
