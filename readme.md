@@ -67,7 +67,6 @@ The **side panel** shows the indicators:
 - Shows the **quotes to post** (one tick inside the spread) and the **profit per round trip**
 - **Score** from the spread, the theo and the trades of the last 10 minutes
 - **Green:** quoting both sides makes sense. **Yellow:** only one side or a risky market
-- Press `1`, `2` or `3` to sort, **double click** a row to open it in the dashboard
 
 **Parameters:** all thresholds of the scanner can be **changed directly in `mm_scanner.py`**.
 
